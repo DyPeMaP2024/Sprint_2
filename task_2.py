@@ -30,32 +30,31 @@
 class Movies:
     def __init__(self, movies):
         self.movies = movies
-    
+
     def add_movie(self, movie):
         self.movies.append(movie)
+
 
 class Comedy(Movies):
-    pass
-
     def __init__(self, movies):
         super().__init__(movies)
-    
+
     def add_movie(self, movie):
-        self.movies.append(movie)
-        return print(f"Комедии: {self.movies}")
-    
+        super().add_movie(movie)
+        return f"Комедии: {self.movies}"
+
+
 class Drama(Movies):
     def __init__(self, movies):
         super().__init__(movies)
-    
-    def add_movie(self, movie):
-        self.movies.append(movie)
-        return print(f"Драма: {self.movies}")  
-    
-comedies = Comedy([])
 
-comedies.add_movie('Большой куш')
+    def add_movie(self, movie):
+        super().add_movie(movie)
+        return f"Драмы: {self.movies}"
+
+
+comedies = Comedy([])
+print(comedies.add_movie('Большой куш'))
 
 dramas = Drama([])
-
-dramas.add_movie('Оружейный барон')
+print(dramas.add_movie('Оружейный барон'))
